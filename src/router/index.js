@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import tableUser from '../components/table-user'
+import main from '../components/main'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'TableUser',
-      component: tableUser
+      name: 'Main',
+      component: main
     }
   ]
 })

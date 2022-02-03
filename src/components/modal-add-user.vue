@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  // TODO: добавить маску и проверку типа вводимых данных на поле ввода номера
   name: 'modal-add-user',
   data () {
     return {

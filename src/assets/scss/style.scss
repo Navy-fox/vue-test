@@ -1,3 +1,8 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 .overlay {
   position: absolute;
   width: 100vw;
@@ -12,18 +17,54 @@
 
 .btn {
   position: relative;
-  border: none;
+  border: 1px solid teal;
+  border-radius: 50px;
   background: none;
   padding: 10px;
   cursor: pointer;
+}
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 4px;
-    background: teal;
+.user-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__title {
+    grid-column: span 1;
+    padding: 10px 15px;
+    border-bottom: 1px solid teal;
+  }
+
+  &__phone {
+    padding: 10px 0 10px 15px;
+  }
+
+  &__name img {
+    width: 36px;
+    height: 36px;
+  }
+
+  &__name {
+    padding: 0 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--1{
+      margin-left: 20px;
+    }
+    &--2{
+      margin-left: 40px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: teal;
+    }
   }
 }
