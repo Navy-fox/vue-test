@@ -5,18 +5,14 @@
         <img src="@/assets/mdi_close-circle-outline.svg" alt="" class="add-user__close" @click="closeModal">
         <p class="add-user__title">Добавление пользователя</p>
         <form action="" class="add-user__form form">
-          <input type="text" class="form__name" v-model="form.name">
-          <input type="text" class="form__phone" v-model="form.phone">
+          <input placeholder="Имя" type="text" class="form__name" v-model="form.name">
+          <input placeholder="Телефон" type="text" class="form__phone" v-model="form.phone">
           <select class="form__parent-name" v-model="form.parentName">
             <option disabled :value="null">no</option>
-            <option value="0">1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option v-for="i in getUsers" :value="i.id" :key="i.id">{{i.name}}</option>
           </select>
         </form>
-        <button class="add-user__btn-save btn">Сохранить</button>
+        <button class="add-user__btn-save btn" @click="addUser">Сохранить</button>
       </div>
     </div>
   </portal>
@@ -37,6 +33,15 @@ export default {
   methods: {
     closeModal () {
       this.$emit('input', false)
+    },
+    addUser () {
+      this.$store.commit('ADD_USER', this.form)
+      this.closeModal()
+    }
+  },
+  computed: {
+    getUsers () {
+      return this.$store.getters.GET_USERS
     }
   }
 }
