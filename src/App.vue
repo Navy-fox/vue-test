@@ -1,16 +1,14 @@
 <template>
   <div id="app">
     <router-view/>
-    <ModalAddUser/>
   </div>
 </template>
 
 <script>
-import ModalAddUser from './components/modal-add-user'
+import '@/assets/scss/style.scss'
 
 export default {
-  name: 'App',
-  components: {ModalAddUser}
+  name: 'App'
 }
 </script>
 
