@@ -15,7 +15,7 @@
           </fieldset>
           <fieldset class="form__fieldset">
             <legend class="form__legend">Начальник</legend>
-            <select class="form__parent-name" v-model="form.parentName">
+            <select class="form__parent-name" v-model="form.parent">
               <option disabled :value="null">no</option>
               <option v-for="i in getUsers" :value="i.id" :key="i.id">{{ i.name }}</option>
             </select>
@@ -36,7 +36,7 @@ export default {
       form: {
         name: '',
         phone: '',
-        parentName: ''
+        parent: null
       },
       mask: {
         phone: ['+7 (', /\d/, /\d/, /\d/, ') ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]

@@ -25,6 +25,19 @@ export default new Vuex.Store({
       if (state.users.length !== 0) {
         return state.users
       }
+    },
+
+    GET_USERS_TREE: state => {
+      const generateUserAndChild = (user) => {
+        return {
+          id: user.id,
+          name: user.name,
+          phone: user.phone,
+          children: state.users.filter(i => i.parent === user.id).map(i => generateUserAndChild(i))
+        }
+      }
+
+      return state.users.filter(i => !i.parent).map(i => generateUserAndChild(i))
     }
   },
   actions: {},

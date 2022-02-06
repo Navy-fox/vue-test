@@ -4,7 +4,7 @@ export class User {
   id
   name
   phone
-  parentName
+  parent
 
   constructor (id = null, model = defaultUser) {
     if (!id && typeof model !== 'object') {
@@ -13,6 +13,6 @@ export class User {
     this.id = id
     this.name = model.name || ''
     this.phone = model.phone || ''
-    this.parentName = model.parentName || null
+    this.parent = model.parent || null
   }
 }

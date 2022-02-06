@@ -4,35 +4,7 @@
       <span class="user-item__title">Имя</span>
       <span class="user-item__title">Телефон</span>
     </div>
-    <UserItem/>
-    <div class="user-item">
-      <div class="user-item__name user-item__name--1">
-        <p>user2</p>
-      <img src="@/assets/mdi-light_chevron-down.svg" alt="">
-      </div>
-      <span class="user-item__phone">911</span>
-    </div>
-    <div class="user-item">
-      <div class="user-item__name">
-        <p>user3</p>
-        <img src="@/assets/mdi-light_chevron-down.svg" alt="">
-      </div>
-      <span class="user-item__phone">303</span>
-    </div>
-    <div class="user-item">
-      <div class="user-item__name user-item__name--1">
-        <p>user4</p>
-        <img src="@/assets/mdi-light_chevron-down.svg" alt="">
-      </div>
-      <span class="user-item__phone">999</span>
-    </div>
-    <div class="user-item">
-      <div class="user-item__name user-item__name--2">
-        <p>user5</p>
-        <img src="@/assets/mdi-light_chevron-down.svg" alt="">
-      </div>
-      <span class="user-item__phone">666</span>
-    </div>
+    <UserItem v-for="i in USER_TREE" :key="i.id" :nesting="0" :user="i"/>
   </div>
 </template>
 
@@ -51,12 +23,18 @@ export default {
         group3: false
       }
     }
+  },
+  computed: {
+    USER_TREE () {
+      return this.$store.getters.GET_USERS_TREE
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .table-users {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
