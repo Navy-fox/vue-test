@@ -49,12 +49,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.arrow {
-  transform: rotate(-90deg);
-  &--revert {
-    transform: rotate(0deg);
-  }
-}
-
-</style>
+<style lang="scss"></style>

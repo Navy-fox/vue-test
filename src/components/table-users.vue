@@ -1,10 +1,15 @@
 <template>
   <div class="table-users">
     <div class="user-item">
-      <span class="user-item__title">Имя</span>
+      <div class="user-item__title" @click="setSortUsers">
+        <span>Имя</span>
+        <img src="@/assets/mdi-light_chevron-down.svg" class="arrow"
+             :class="{'arrow--up': getSortUsers === -1, 'arrow--down': getSortUsers === 1}" alt="">
+      </div>
+
       <span class="user-item__title">Телефон</span>
     </div>
-    <UserItem v-for="i in USER_TREE" :key="i.id" :nesting="0" :user="i"/>
+    <UserItem v-for="i in userTree" :key="i.id" :nesting="0" :user="i"/>
   </div>
 </template>
 
@@ -16,23 +21,25 @@ export default {
   name: 'table-users',
   components: {UserItem},
   data () {
-    return {
-      isOpen: {
-        group1: false,
-        group2: false,
-        group3: false
-      }
-    }
+    return {}
   },
   computed: {
-    USER_TREE () {
+    userTree () {
       return this.$store.getters.GET_USERS_TREE
+    },
+    getSortUsers () {
+      return this.$store.getters.GET_SORT_USERS
+    }
+  },
+  methods: {
+    setSortUsers () {
+      this.$store.commit('SET_SORT_USERS')
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .table-users {
   margin-top: 40px;
   display: flex;
@@ -41,4 +48,5 @@ export default {
   width: 100%;
   text-align: start;
 }
+
 </style>

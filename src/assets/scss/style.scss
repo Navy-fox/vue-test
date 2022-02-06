@@ -31,17 +31,15 @@
 
   &__title {
     grid-column: span 1;
-    padding: 10px 15px;
+    padding: 5px 15px;
     border-bottom: 1px solid teal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__phone {
     padding: 10px 0 10px 15px;
-  }
-
-  &__name img {
-    width: 36px;
-    height: 36px;
   }
 
   &__name {
@@ -50,13 +48,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    &--1{
-      margin-left: 20px;
-    }
-    &--2{
-      margin-left: 40px;
-    }
 
     &:before {
       content: '';
@@ -67,5 +58,22 @@
       width: 4px;
       background: teal;
     }
+  }
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  transform: rotate(-90deg);
+
+  &--revert {
+    transform: rotate(0deg);
+  }
+
+  &--up {
+    transform: rotate(180deg);
+  }
+  &--down {
+    transform: rotate(0deg);
   }
 }

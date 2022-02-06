@@ -94,7 +94,6 @@ export default {
   width: 100%;
 
   &__fieldset {
-    //border: none;
     display: flex;
     flex-direction: column;
     align-items: start;
